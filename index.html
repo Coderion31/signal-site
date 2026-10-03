@@ -10,16 +10,49 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { height: 100%; }
+  :root {
+    --bg: #000;
+    --fg: #fff;
+    --muted: #9ca3af;
+    --muted2: #6b7280;
+    --icon-bg: rgba(255,255,255,0.08);
+    --btn-border: rgba(255,255,255,0.18);
+    --btn-hover: rgba(255,255,255,0.08);
+    --btn-primary-bg: #1f2937;
+    --btn-primary-border: #374151;
+    --btn-primary-hover: #283544;
+    --input-bg: rgba(255,255,255,0.08);
+    --input-border: rgba(255,255,255,0.12);
+    --mascot-src: url('mascot-dark.svg');
+    --accent-a: #6fa8ff;
+    --accent-b: #3b82f6;
+  }
+  body[data-theme="light"] {
+    --bg: #f5f6f8;
+    --fg: #0b0f14;
+    --muted: #4b5563;
+    --muted2: #6b7280;
+    --icon-bg: rgba(0,0,0,0.06);
+    --btn-border: rgba(0,0,0,0.15);
+    --btn-hover: rgba(0,0,0,0.06);
+    --btn-primary-bg: #e5e7eb;
+    --btn-primary-border: #d1d5db;
+    --btn-primary-hover: #d1d5db;
+    --input-bg: rgba(0,0,0,0.05);
+    --input-border: rgba(0,0,0,0.12);
+    --mascot-src: url('mascot.svg');
+  }
   body {
     font-family: 'Inter', sans-serif;
-    background: #000;
-    color: #fff;
+    background: var(--bg);
+    color: var(--fg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     overflow: hidden;
+    transition: background .25s, color .25s;
   }
 
   .topbar {
@@ -33,12 +66,13 @@
   }
   .icon-btn {
     width: 38px; height: 38px;
-    background: rgba(255,255,255,0.08);
+    background: var(--icon-bg);
     border: none;
     border-radius: 50%;
-    color: #fff;
+    color: var(--fg);
     display: flex; align-items: center; justify-content: center;
     cursor: pointer;
+    transition: opacity .15s;
   }
   .icon-btn svg { width: 20px; height: 20px; }
 
@@ -52,7 +86,7 @@
     font-family: 'Caveat', cursive;
     font-size: 64px;
     font-weight: 600;
-    background: linear-gradient(90deg, #6fa8ff, #3b82f6);
+    background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -64,12 +98,11 @@
   .logo {
     margin: 16px auto 0;
     width: 130px; height: 130px;
-    background: url('mascot.svg');
+    background: var(--mascot-src);
     background-size: 1040px 780px;
     background-position: 0 0;
     background-repeat: no-repeat;
     animation: mascot 5s steps(1) infinite;
-    filter: invert(1);
     transform: translateX(-52%);
   }
   @keyframes mascot {
@@ -127,7 +160,7 @@
     margin: 20px 0 8px;
   }
   .headline .accent {
-    background: linear-gradient(90deg, #6fa8ff, #3b82f6);
+    background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -135,13 +168,13 @@
     font-size: 1.15em;
   }
   .sub {
-    color: #9ca3af;
+    color: var(--muted);
     font-size: 15px;
     line-height: 1.5;
   }
 
   .ask {
-    color: #6b7280;
+    color: var(--muted2);
     font-size: 13px;
     margin: 20px 0 12px;
   }
@@ -155,20 +188,20 @@
   .btn {
     padding: 12px 26px;
     border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.18);
+    border: 1px solid var(--btn-border);
     background: transparent;
-    color: #fff;
+    color: var(--fg);
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
     transition: background .15s, border-color .15s;
   }
-  .btn:hover { background: rgba(255,255,255,0.08); }
+  .btn:hover { background: var(--btn-hover); }
   .btn.primary {
-    background: #1f2937;
-    border-color: #374151;
+    background: var(--btn-primary-bg);
+    border-color: var(--btn-primary-border);
   }
-  .btn.primary:hover { background: #283544; }
+  .btn.primary:hover { background: var(--btn-primary-hover); }
 
   .inputbar {
     position: fixed;
@@ -181,15 +214,15 @@
   }
   .inputbar input {
     flex: 1;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
     border-radius: 999px;
     padding: 14px 20px;
-    color: #fff;
+    color: var(--fg);
     font-size: 15px;
     outline: none;
   }
-  .inputbar input::placeholder { color: #6b7280; }
+  .inputbar input::placeholder { color: var(--muted2); }
   .send {
     width: 46px; height: 46px;
     background: #3b82f6;
@@ -203,13 +236,13 @@
   .send svg { width: 22px; height: 22px; }
 </style>
 </head>
-<body>
+<body data-theme="dark">
 
   <div class="topbar">
     <button class="icon-btn" title="Звук" id="muteBtn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
     </button>
-    <button class="icon-btn" title="Тема">
+    <button class="icon-btn" title="Переключить тему" id="themeBtn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
     </button>
   </div>
@@ -247,6 +280,14 @@
     document.querySelector('.send').addEventListener('click', () => {
       const input = document.querySelector('.inputbar input');
       if (input.value.trim()) { input.value = ''; }
+    });
+    const themeBtn = document.getElementById('themeBtn');
+    let saved = localStorage.getItem('signal-theme');
+    if (saved) document.body.setAttribute('data-theme', saved);
+    themeBtn.addEventListener('click', () => {
+      const cur = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', cur);
+      localStorage.setItem('signal-theme', cur);
     });
   </script>
 </body>
