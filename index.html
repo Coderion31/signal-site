@@ -23,7 +23,6 @@
     --btn-primary-hover: #283544;
     --input-bg: rgba(255,255,255,0.08);
     --input-border: rgba(255,255,255,0.12);
-    --mascot-src: url('mascot-dark.svg');
     --accent-a: #6fa8ff;
     --accent-b: #3b82f6;
   }
@@ -40,7 +39,6 @@
     --btn-primary-hover: #d1d5db;
     --input-bg: rgba(0,0,0,0.05);
     --input-border: rgba(0,0,0,0.12);
-    --mascot-src: url('mascot.svg');
   }
   body {
     font-family: 'Inter', sans-serif;
@@ -93,65 +91,6 @@
     letter-spacing: 2px;
     margin-bottom: 8px;
     user-select: none;
-  }
-
-  .logo {
-    margin: 16px auto 0;
-    width: 130px; height: 130px;
-    background: var(--mascot-src);
-    background-size: 1064px 798px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    animation: mascot 5s steps(1) infinite;
-    transform: translateX(-52%);
-  }
-  @keyframes mascot {
-    0% { background-position: 0px 0px; }
-    2.2222% { background-position: -133px 0px; }
-    4.4444% { background-position: -266px 0px; }
-    6.6667% { background-position: -399px 0px; }
-    8.8889% { background-position: -532px 0px; }
-    11.1111% { background-position: -665px 0px; }
-    13.3333% { background-position: -798px 0px; }
-    15.5555% { background-position: -931px 0px; }
-    17.7778% { background-position: 0px -133px; }
-    20% { background-position: -133px -133px; }
-    22.2222% { background-position: -266px -133px; }
-    24.4444% { background-position: -399px -133px; }
-    26.6666% { background-position: -532px -133px; }
-    28.8889% { background-position: -665px -133px; }
-    31.1111% { background-position: -798px -133px; }
-    33.3333% { background-position: -931px -133px; }
-    35.5555% { background-position: 0px -266px; }
-    37.7777% { background-position: -133px -266px; }
-    40% { background-position: -266px -266px; }
-    42.2222% { background-position: -399px -266px; }
-    44.4444% { background-position: -532px -266px; }
-    46.6666% { background-position: -665px -266px; }
-    48.8888% { background-position: -798px -266px; }
-    51.1111% { background-position: -931px -266px; }
-    53.3333% { background-position: 0px -399px; }
-    55.5555% { background-position: -133px -399px; }
-    57.7777% { background-position: -266px -399px; }
-    59.9999% { background-position: -399px -399px; }
-    62.2222% { background-position: -532px -399px; }
-    64.4444% { background-position: -665px -399px; }
-    66.6666% { background-position: -798px -399px; }
-    68.8888% { background-position: -931px -399px; }
-    71.1111% { background-position: 0px -532px; }
-    73.3333% { background-position: -133px -532px; }
-    75.5555% { background-position: -266px -532px; }
-    77.7777% { background-position: -399px -532px; }
-    79.9999% { background-position: -532px -532px; }
-    82.2222% { background-position: -665px -532px; }
-    84.4444% { background-position: -798px -532px; }
-    86.6666% { background-position: -931px -532px; }
-    88.8888% { background-position: 0px -665px; }
-    91.1111% { background-position: -133px -665px; }
-    93.3333% { background-position: -266px -665px; }
-    95.5555% { background-position: -399px -665px; }
-    97.7777% { background-position: -532px -665px; }
-    100% { background-position: -532px -665px; }
   }
 
   .headline {
@@ -249,8 +188,6 @@
 
   <div class="content">
     <div class="brand">SIGNAL</div>
-
-    <div class="logo" role="img" aria-label="Маскот Signal"></div>
 
     <div class="headline">Привет, это <span class="accent">Signal</span> —<br>все твои новости в одном месте</div>
     <div class="sub">новости, мессенджер и уведомления<br>в одном месте</div>
